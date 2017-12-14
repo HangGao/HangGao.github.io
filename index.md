@@ -23,8 +23,8 @@ _(If you have any question or doubt about this article, pls contact me @ hanggao
 
 ## [](#header-2) EM algorithm is E expectation + M maximization
 
-[What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1) by Do. & Batzoglou gives a classic example about what is the Expectation Maximization algorithm.
-
+[What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1) by (Do. & Batzoglou) gives a classic example about what is the Expectation Maximization algorithm.
+Consider a simple coin flipping experiment in which we are given a pair of coin A and B of unknown biases, \\(\theta_A\\) and \\(\theta_B\\) respectively. 
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
