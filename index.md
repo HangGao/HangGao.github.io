@@ -24,5 +24,8 @@ _(If you have any question or doubt about this article, pls contact me @ hanggao
 ## [](#header-2) EM algorithm is E expectation + M maximization
 
 \(Do. & Batzoglou\) gives a classic example about EM algorithm in [What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1)
-Consider a simple coin flipping experiment in which we are given a pair of coin A and B of unknown biases, \\(\theta_A\\) and \\(\theta_B\\) respectively. 
-
+Consider a simple coin flipping experiment in which we are given a pair of coin A and B of unknown biases, \\( \theta_A \\) and \\( \theta_B \\) respectively \(i.e., 
+given any flip, coin A will land on heads with probability \\(\theta_A\\) and tails with probability \\( 1-\theta_A \\) and similar for coin B\). If the goal is set to
+estimate \\(\Theta = \(\theta_A, \theta_B\)\\), we can divide the experiment into repeated runs of the following procedure: (1) randomly choose one of the two coins;
+(2) and perform independent coin tosses with the selected coin. In other words, we keep track of two vectors \\( x = \(x_1, x_2, x_3, ..., x_n\) \\) and \\(  \\)
+ 
