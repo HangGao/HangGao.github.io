@@ -32,13 +32,13 @@ If the goal is set to estimate \\(\Theta = \(\theta_A, \theta_B\)\\), we can div
 (2) and perform m independent coin tosses with the selected coin. 
 
 In other words, we keep track of two vectors \\( x = \(x_1, x_2, ..., x_n\) \\) and \\( z = \(z_1, z_2, ..., z_n\) \\),
-where \\( x_i \in \{0, 1, 2, ..., m\} \\) is the number of heads observed during the ith set of tosses, and \\( z_i \in \{A, B\} \\)
+where \\( x_i \in \\{0, 1, 2, ..., m\\} \\) is the number of heads observed during the ith set of tosses, and \\( z_i \in \\{A, B\\} \\)
 is the identity of the coin used for ith set of tosses.  
 
 In this setting, parameter estimation is known as the complete data case (values of all relevant variables are known), then \\( \theta_A \\) and \\( \theta_B \\)
 can be given as, 
 
-$ \theta_A = \frac{# of heads using coin A}{total # of flips using coin A} $
+\\( \theta_A = \frac{# of heads using coin A}{total # of flips using coin A} \\)
 and
-$ \theta_B = \frac{# of heads using coin B}{total # of flips using coin B} $
+\\( \theta_B = \frac{# of heads using coin B}{total # of flips using coin B} \\)
 
