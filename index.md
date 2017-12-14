@@ -2,9 +2,9 @@
 layout: default
 ---
 
-This article is a brief translation of the blog post [/<Nine levels of EM algorithm/>](http://mp.weixin.qq.com/s/NbM4sY93kaG5qshzgZzZIQ) by Chunqi Shi. 
+This article is a brief translation of the blog post [Nine levels of EM algorithm](http://mp.weixin.qq.com/s/NbM4sY93kaG5qshzgZzZIQ) by Chunqi Shi. 
 
-It aims at providing a clear view of understanding of EM algorithm. In specific, Shi divides his understanding of EM algorithm into 9 levels. 
+It aims at providing an introduction to EM algorithm. In specific, Shi divides his understanding of EM algorithm into 9 levels. 
 
 _(If you have any question or doubt about this article, pls contact me @ hanggao1@umbc.edu)_
 
@@ -21,7 +21,7 @@ _(If you have any question or doubt about this article, pls contact me @ hanggao
 9. The unity of KL divergence
 
 ## [](#header-2) EM algorithm is E expectation + M maximization
-
+A classic example is 
 
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
