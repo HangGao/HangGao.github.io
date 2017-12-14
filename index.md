@@ -36,11 +36,7 @@ where \\( x_i \in \\{0, 1, 2, ..., m\\} \\) is the number of heads observed duri
 is the identity of the coin used for ith set of tosses.  
 
 In this setting, parameter estimation is known as the complete data case (values of all relevant variables are known), then \\( \theta_A \\) and \\( \theta_B \\)
-can be given as, 
+can be given as, \\( \theta_A = \frac{H_A}{T_A} \\) and \\( \theta_B = \frac{H_B}{T_B} \\), where  \\( H_A \\) is the # of heads using coin A and \\( T_A \\) is the 
+total # of flips using coin A and similiar for B. 
 
-$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
-
-\\( \theta_A = \frac{# of heads using coin A}{total # of flips using coin A} \\)
-and
-\\( \theta_B = \frac{# of heads using coin B}{total # of flips using coin B} \\)
 
