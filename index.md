@@ -31,6 +31,6 @@ given any flip, coin A will land on heads with probability \\(\theta_A\\) and ta
 If the goal is set to estimate \\(\Theta = \(\theta_A, \theta_B\)\\), we can divide the experiment into n repeated runs of the following procedure: (1) randomly choose one of the two coins;
 (2) and perform m independent coin tosses with the selected coin. 
 
-In other words, we keep track of two vectors \\( x = \(x_1, x_2, x_3, ..., x_n\) \\) and \\( z = \(z_1, z_2, z_3, ..., z_n\) \\),
+In other words, we keep track of two vectors \\( x = \(x_1, x_2, ..., x_n\) \\) and \\( z = \(z_1, z_2, ..., z_n\) \\),
 where \\( x_i \in {0, 1, 2, ..., m} \\) is the number of heads observed during the ith set of tosses, and \\( z_i \in {A, B} \\)
 is the identity of the coin used for ith set of tosses.  
