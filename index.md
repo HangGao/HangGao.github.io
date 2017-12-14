@@ -22,7 +22,8 @@ _(If you have any question or doubt about this article, pls contact me @ hanggao
 9. The unity of KL divergence
 
 ## [](#header-2) EM algorithm is E expectation + M maximization
-[What is the expectation maximization algorithm?] by Do. & Batzoglou gives a classic example about what is the Expectation Maximization algorithm.
+
+[What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1) by Do. & Batzoglou gives a classic example about what is the Expectation Maximization algorithm.
 
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
