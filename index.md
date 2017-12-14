@@ -2,7 +2,7 @@
 layout: default
 ---
 
-This article is a brief translation of the blog post [(Nine levels of EM algorithm)](http://mp.weixin.qq.com/s/NbM4sY93kaG5qshzgZzZIQ) by Chunqi Shi. 
+This article is a brief translation of the blog post [Nine levels of EM algorithm](http://mp.weixin.qq.com/s/NbM4sY93kaG5qshzgZzZIQ) by Chunqi Shi. 
 
 It aims at providing a clear view of understanding of EM algorithm. In specific, Shi divides his understanding of EM algorithm into 9 levels. 
 
