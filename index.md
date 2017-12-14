@@ -2,8 +2,9 @@
 layout: default
 ---
 
-This article was a brief translation of the blog post [Nine levels of EM algorithm](http://mp.weixin.qq.com/s/NbM4sY93kaG5qshzgZzZIQ) by Chunqi Shi. It aims at providing a clear view of 
-understanding of EM algorithm. In specific, Shi divides his understanding of EM algorithm into 9 levels. If you have any question or doubt about this article, pls contact me @ hanggao1@umbc.edu
+This article is a brief translation of the blog post [<Nine levels of EM algorithm>](http://mp.weixin.qq.com/s/NbM4sY93kaG5qshzgZzZIQ) by Chunqi Shi. 
+It aims at providing a clear view of understanding of EM algorithm. In specific, Shi divides his understanding of EM algorithm into 9 levels. 
+If you have any question or doubt about this article, pls contact me @ hanggao1@umbc.edu
 
 # [](#header-1) 9 Levels of EM Algorithm Comprehension 
 1. EM is E + M
