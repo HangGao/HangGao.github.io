@@ -38,7 +38,7 @@ is the identity of the coin used for ith set of tosses.
 In this setting, parameter estimation is known as the complete data case (values of all relevant variables are known), then \\( \theta_A \\) and \\( \theta_B \\)
 can be given as, 
 
-$$a^2 + b^2 = c^2$$
+$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
 
 \\( \theta_A = \frac{# of heads using coin A}{total # of flips using coin A} \\)
 and
