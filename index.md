@@ -3,6 +3,7 @@ layout: default
 ---
 
 This article is a brief translation of the blog post [Nine levels of EM algorithm](http://mp.weixin.qq.com/s/NbM4sY93kaG5qshzgZzZIQ) by Chunqi Shi. 
+In addition, I add some personal explaination and comprehension. 
 
 It aims at providing an introduction to EM algorithm. In specific, Shi divides his understanding of EM algorithm into 9 levels. 
 
@@ -21,7 +22,7 @@ _(If you have any question or doubt about this article, pls contact me @ hanggao
 9. The unity of KL divergence
 
 ## [](#header-2) EM algorithm is E expectation + M maximization
-A classic example is 
+[What is the expectation maximization algorithm?] by Do. & Batzoglou gives a classic example about what is the Expectation Maximization algorithm.
 
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
@@ -43,7 +44,6 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 > When something is important enough, you do it even if the odds are not in your favor.
 
 ### [](#header-3)Header 3
-
 ```js
 // Javascript code with syntax highlighting.
 var fun = function lang(l) {
