@@ -72,7 +72,7 @@ where \\( L(\Theta; x, z) = p(x, z\|\Theta) \\) is the likelihood function, and 
 
 
 ## [](#header-2) EM iteratively picks a lower bound
-Above we provide a brief explanation of EM on maximize the log-likelihood \\( log p(x \| \Theta) = \int p(x, z \| \Theta) dz \\). 
+Above we provide the explanation of EM on maximize log-likelihood \\( log p(x \| \Theta) = \int p(x, z \| \Theta) dz \\). 
 
 
 ### [](#header-3) CITATIONS:
