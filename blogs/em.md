@@ -85,14 +85,14 @@ logp(x | \Theta) & = log(\int p(x, z | \Theta) dz) = log(\int q(z)\frac{p(x, z |
 \end{align}
 $$
 
-Note that \\( q(z) \\) is the probability distribution over completions mentioned above. Let \\( L(\Theta; q(z)) = E_q[log p(x, z \| \Theta)] + H(q(z)) \\) be the lower bound, recall above EM alternates between
+Note that \\( q \\) is the probability distribution over completions mentioned above. Let \\( L(\Theta; q) = E_q[log p(x, z \| \Theta)] + H(q(z)) \\) be the lower bound, recall above EM alternates between
 E and M steps, where E step aims at guessing the probability distribution of missing data given current model while M step seeks to reestimate model parameters given using these completions. 
 
 In other words, for each iteration t, at E step, model parameter \\( \Theta^t \\) is fixed, the distribution of completion \\( q^{t+1} \\) is given as,
 
 $$ 
 \begin{align}
-q^{t+1} &= argmax_{q} L(\Theta; q(z)) \\
+q^{t+1} &= argmax_{q} L(\Theta^t; q) \\
 		&= p(z|x, \Theta^t)
 \end{align}
 $$
