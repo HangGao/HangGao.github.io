@@ -76,10 +76,8 @@ Above we provide the explaination of EM on maximize log-likelihood \\( log p(x \
 
 $$
 \begin{align}
-logp(x | \Theta) & = log(\int p(x, z | \Theta) dz) \\
- 				 & = log(\int q(z)\frac{p(x, z | \Theta)}{q(z)} dz) \\ 
- 				 & = log E_q[\frac{p(x, z | \Theta)}{q(z)}] \\
- 				 & = log E_q[e^{log\frac{p(x, z | \Theta)}{q(z)}}] \\
+logp(x | \Theta) & = log(\int p(x, z | \Theta) dz) = log(\int q(z)\frac{p(x, z | \Theta)}{q(z)} dz) \\ 
+ 				 & = log E_q[\frac{p(x, z | \Theta)}{q(z)}] = log E_q[e^{log\frac{p(x, z | \Theta)}{q(z)}}] \\
  				 & \ge log e^{E_q[log\frac{p(x, z | \Theta)}{q(z)}]} \\
  				 & \ge E_q[log\frac{p(x, z | \Theta)}{q(z)}] \\
  				 & \ge E_q[log p(x, z | \Theta)] - E_q[log q(z)] \\
@@ -99,6 +97,7 @@ logp(x | \Theta) & \ge E_q[log\frac{p(x, z | \Theta)}{q(z)}] \\
 \end{align}
 $$
 
+Note that \\( q(z) \\) is the probability distribution over completions mentioned above. Let \\( L(\Theta; q(z)) = E_q[log p(x, z | \Theta)] + H(q(z)) \\) be the lower bound, 
 
 ### [](#header-3) CITATIONS:
 * Fig 1: \(Do. & Batzoglou\) [What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1)
