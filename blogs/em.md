@@ -64,7 +64,7 @@ statistics is enough,
 
 $$ Q(\Theta|\Theta^t) = E_{z|x,\Theta^t}(log L(\Theta; x, z)) $$
 
-<!-- where \\( L(\Theta; x, z) = p(x, z|\Theta) \\) is the likelihood function. While model reestimation can be thought as maximization of the expected log likelihood of completed data.  -->
+where $ L(\Theta; x, z) = p(x, z|\Theta) $ is the likelihood function. While model reestimation can be thought as maximization of the expected log likelihood of completed data. 
 
 $$ \Theta^{t+1} = argmax_{\Theta}Q(\Theta|\Theta^t) $$
 
