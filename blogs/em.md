@@ -62,11 +62,12 @@ Back to the definition that EM is E + M, expectation maximization alternates bet
 model while at M step, EM re-estimates the model parameters using these completions. However, it is often not necessary to compute the probability distribution over completions, instead, \"expected\" sufficient
 statistics is enough,
 
-$$Q(\Theta|\Theta^t) = E_{z|x,\Theta^t}(log L(\Theta; x, z))$$
+\\( Q(\Theta|\Theta^t) = E_{z|x,\Theta^t}(log L(\Theta; x, z)) \\)
 
 where \\( L(\Theta; x, z) = p(x, z|\Theta) \\) is the likelihood function. While model reestimation can be thought as maximization of the expected log likelihood of completed data. 
 
-$$\Theta^{t+1} = argmax_{\Theta}Q(\Theta|\Theta^t)$$
+\\( \Theta^{t+1} = argmax_{\Theta}Q(\Theta|\Theta^t) \\)
+
 
 
 ### [](#header-3) CITATIONS:
