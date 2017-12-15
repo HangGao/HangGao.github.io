@@ -3,4 +3,4 @@ description: a Ph.D student interested in deep learning
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-cayman
-markdown: kramdown
+markdown: redcarpet
