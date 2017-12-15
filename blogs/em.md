@@ -10,7 +10,7 @@ It aims at providing an introduction to EM algorithm. In specific, Shi divides h
 _(If you have any question or doubt about this article, pls contact me @ hanggao1@umbc.edu)_
 
 
-# [](#header-1) 9 ways of EM Algorithm Comprehension 
+# [](#header-1) 9 \"Level\" Comprehension of EM Algorithm  
 1. EM is E + M
 2. EM is a way to construct local lower bound
 3. K-means is a Hard EM algorithm
