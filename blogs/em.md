@@ -39,9 +39,10 @@ In this setting, parameter estimation is known as the complete data case (values
 can be given as, \\( \hat{\theta_A} = \frac{H_A}{T_A} \\) and \\( \hat{\theta_B} = \frac{H_B}{T_B} \\), where  \\( H_A \\) is the # of heads using coin A and \\( T_A \\) is the 
 total # of flips using coin A and similiar for B. 
 
-![Figure 1: Parameter estimation for complete and incomplete data][image1]
-*Figure 1: Parameter estimation for complete and incomplete data*
-
+<figure>
+  <img src="{{site.url}}/assets/images/em/image_1.gif" alt="Parameter estimation for complete and incomplete data"/>
+  <figcaption>Fig 1: Parameter estimation for complete and incomplete data</figcaption>
+</figure>
 
 
 [image1]: resources/em/images/image_1.gif "Parameter estimation for complete and incomplete data"
