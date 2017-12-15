@@ -88,9 +88,14 @@ $$
 Note that \\( q(z) \\) is the probability distribution over completions mentioned above. Let \\( L(\Theta; q(z)) = E_q[log p(x, z \| \Theta)] + H(q(z)) \\) be the lower bound, recall above EM alternates between
 E and M steps, where E step aims at guessing the probability distribution of missing data given current model while M step seeks to reestimate model parameters given using these completions. In other words, for each iteration t, at E step, model parameter \\( \Theta^t \\) is fixed, the distribution of completion \\( q^{t+1} \\) is given as,
 
-$$ q^{t+1} = argmax_{q} L(\Theta; q(z)) = p(z|x, \Theta^t)$$
+$$ 
+\begin{align}
+q^{t+1} &= argmax_{q} L(\Theta; q(z)) \\
+		&= p(z|x, \Theta^t)
+\end{align}
+$$
 
-At M step, model parameters are updated to maximize the expected complete log-likelihood function,
+At M step, model parameters are updated to maximize the expected complete log-likelihood function, with \\( q^{t+1} \\) fixed,
 
 $$ \Theta^{t+1} = argmax_{\Theta} L(\Theta; q^{t+1}) $$
 
