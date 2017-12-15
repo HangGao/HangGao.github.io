@@ -46,7 +46,19 @@ can be given as, \\( \hat{\theta_A} = \frac{H_A}{H_A + T_A} \\) and \\( \hat{\th
 The above estimation is known as maximum likelihood estimation in statistical literature, i.e., it gives a solution of the parameters \\( \hat{\Theta} = \(\hat{\theta_A}, \hat{\theta_B}\) \\) that
 maximize the logarithm of joint probability (or log-likelihood) \\( logP\(x, z; \Theta\) \\).
 
-However, when it comes to incomplete data case, for example, we are only given recorded head counts \\( x \\), without the identities \\( z \\) of the coin used for each set of tosses. 
+However, when it comes to incomplete data case, for example, we are only given recorded head counts \\( x \\), without the identities \\( z \\) of the coin used for each set of tosses. In this case, 
+it is impossible to compute the propotion of heads for each coin because coin identity is no longer available. However, viewing \\(z\\) as latent factors or hidden variables, if we have some way to complete
+data, **we can reduce the problem of parameter estimation with incomplete data back to maximum likelihood estimation with complete data**.
+
+One possible completion could be as follows: (1) starting from some initial parameters, \\(\hat{\Theta}^t = \(\hat{\theta_A}^t, \hat{\theta_B}^t\)\\), determine for each run whether coin A or B was more 
+likely to have generated the observed flips (using current parameter estimates); (2) assume the guess/completetion to be correct (coin assignment), apply regular maximum likelihood estimation to get \\(\hat{\Theta}^{t+1}\\); (3) repeat the above two steps until convergence. The completion will improve along with the improvement of parameter estimates. 
+
+Expectation maximization is a refinement on the above idea. Instead of picking the most possible coin for each run on each iteration, EM computes probabilities for each completion of missing data, using
+current parameters \\(\hat{\Theta}^t\\). A weighted training data is thus created consisting of all possible completion of data. And then a modified version of maximum likelihood estimation deals with the 
+weighted training examples and provides new parameter estimates \\( \hat{\Theta}^{t+1} \\). **By using weighted training examples rather than choosing the single best completion, EM is able to account for 
+the confidence of the model in each possible completion**.
+
+
 
 ### [](#header-3) CITATIONS:
 * Fig 1: \(Do. & Batzoglou\) [What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1)
