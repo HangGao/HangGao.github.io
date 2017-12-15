@@ -58,6 +58,11 @@ current parameters \\(\hat{\Theta}^t\\). A weighted training data is thus create
 weighted training examples and provides new parameter estimates \\( \hat{\Theta}^{t+1} \\). **By using weighted training examples rather than choosing the single best completion, EM is able to account for 
 the confidence of the model in each possible completion**.
 
+Back to the definition that EM is E + M, expectation maximization alternates between E and M step. At E step, EM tries to approximate a probability distribution over completions of missing data given current
+model while at M step, EM re-estimates the model parameters using these completions. However, it is often not necessary to compute the probability distribution over completions, instead, \"expected\" sufficient
+statistics is enough,
+
+$$Q(\Theta|\Theta^t) = E_{z|x,\Theta^t}(log L(\Theta; x, z))$$
 
 
 ### [](#header-3) CITATIONS:
