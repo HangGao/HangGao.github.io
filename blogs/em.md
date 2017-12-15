@@ -76,9 +76,12 @@ Above we provide the explaination of EM on maximize log-likelihood \\( log p(x \
 
 $$
 \begin{align}
-logp(x\|\Theta) & = log(\int p(x, z \| \Theta) dz) \\
- 				& = log(\int q(z)\frac{p(x, z \| \Theta)}{q(z)} dz) \\ 
- 
+logp(x | \Theta) & = log(\int p(x, z | \Theta) dz) \\
+ 				 & = log(\int q(z)\frac{p(x, z | \Theta)}{q(z)} dz) \\ 
+ 				 & = log E_q[\frac{p(x, z | \Theta)}{q(z)}] \\
+ 				 & = log E_q[e^{log\frac{p(x, z | \Theta)}{q(z)}}] \\
+ 				 & \ge log e^{E_q[log\frac{p(x, z | \Theta)}{q(z)}]} \\
+ 				 & = E_q[log\frac{p(x, z | \Theta)}{q(z)}] \\
 \end{align}
 $$
 
