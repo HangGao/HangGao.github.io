@@ -97,7 +97,10 @@ logp(x | \Theta) & \ge E_q[log\frac{p(x, z | \Theta)}{q(z)}] \\
 \end{align}
 $$
 
-Note that \\( q(z) \\) is the probability distribution over completions mentioned above. Let \\( L(\Theta; q(z)) = E_q[log p(x, z | \Theta)] + H(q(z)) \\) be the lower bound, 
+Note that \\( q(z) \\) is the probability distribution over completions mentioned above. Let \\( L(\Theta; q(z)) = E_q[log p(x, z \| \Theta)] + H(q(z)) \\) be the lower bound, recall above EM alternates between
+E and M steps, where E step aims at guessing the probability distribution of missing data given current model while M step seeks to reestimate model parameters given using these completions. In other words, for each iteration t, at E step, model parameter \\( \Theta^t \\) is fixed, the distribution of completion \\( q^{t+1} \\) is given as,
+
+$$ q^{t+1} = argmax_{q} L(\Theta; q(z)) = p(z|x, \Theta^t)$$
 
 ### [](#header-3) CITATIONS:
 * Fig 1: \(Do. & Batzoglou\) [What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1)
