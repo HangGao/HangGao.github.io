@@ -68,7 +68,7 @@ statistics is enough,
 where \\( L(\Theta; x, z) = p(x, z\|\Theta) \\) is the likelihood function, and model reestimation can be thought as maximization of the expected log likelihood of completed data. 
 
 
-\\[ \Theta^{t+1} = argmax_{\Theta}Q(\Theta\|\Theta^t) \\]
+\\[ \Theta^{t+1} = argmax\limits_{\Theta}Q(\Theta\|\Theta^t) \\]
 
 
 
