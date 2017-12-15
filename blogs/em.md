@@ -72,7 +72,7 @@ where \\( L(\Theta; x, z) = p(x, z\|\Theta) \\) is the likelihood function, and 
 
 
 ## [](#header-2) EM iteratively picks a lower bound
-Above we provide the explaination of EM on maximize log-likelihood \\( log p(x \| \Theta) = \int p(x, z \| \Theta) dz \\). Given Jensen Inequality, we have
+Above we provide the explaination of EM on maximize log-likelihood \\( log p(x \| \Theta) = \int p(x, z \| \Theta) dz \\). Given Jensen Inequality, we have,
 
 $$
 \begin{align}
@@ -94,7 +94,7 @@ $$
 logp(x | \Theta) & \ge E_q[log\frac{p(x, z | \Theta)}{q(z)}] \\
 				 & \ge E_q[log\frac{p(z | x, \Theta)p(x | \Theta)}{q(z)}] \\
 				 & \ge E_q[log p(x|\Theta)] - E_q[log\frac{q(z)}{p(z|x, \Theta)}] \\
-				 & \ge E_q[log p(x|\Theta)] - KL(q(z) \| p(z|x, \Theta))
+				 & \ge E_q[log p(x|\Theta)] - KL(q(z) \| p(z|x, \Theta)) \\
 				 & \ge log p(x|\Theta) - KL(q(z) \| p(z|x, \Theta)) \\
 \end{align}
 $$
