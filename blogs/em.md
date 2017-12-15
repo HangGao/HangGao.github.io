@@ -12,7 +12,7 @@ _(If you have any question or doubt about this article, pls contact me @ hanggao
 
 # [](#header-1) 9 \"Level\" Comprehension of EM Algorithm  
 1. EM is E + M
-2. EM is a way to construct local lower bound
+2. EM provides a local minimum by iteratively picking a lower bound
 3. K-means is a Hard EM algorithm
 4. From EM to general EM
 5. VBEM is a special case of general EM
@@ -69,6 +69,9 @@ where \\( L(\Theta; x, z) = p(x, z\|\Theta) \\) is the likelihood function, and 
 
 
 \\[ \Theta^{t+1} = argmax_{\Theta} Q(\Theta\|\Theta^t) \\]
+
+
+## [](#header-2) EM provides a local minimum by iteratively picking a lower bound
 
 
 
