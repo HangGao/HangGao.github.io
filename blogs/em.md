@@ -81,7 +81,21 @@ logp(x | \Theta) & = log(\int p(x, z | \Theta) dz) \\
  				 & = log E_q[\frac{p(x, z | \Theta)}{q(z)}] \\
  				 & = log E_q[e^{log\frac{p(x, z | \Theta)}{q(z)}}] \\
  				 & \ge log e^{E_q[log\frac{p(x, z | \Theta)}{q(z)}]} \\
- 				 & = E_q[log\frac{p(x, z | \Theta)}{q(z)}] \\
+ 				 & \ge E_q[log\frac{p(x, z | \Theta)}{q(z)}] \\
+ 				 & \ge E_q[log p(x, z | \Theta)] - E_q[log q(z)] \\
+ 				 & \ge E_q[log p(x, z | \Theta)] + H(q(z))
+\end{align}
+$$
+
+We also have,
+
+$$
+\begin{align}
+logp(x | \Theta) & \ge E_q[log\frac{p(x, z | \Theta)}{q(z)}] \\
+				 & \ge E_q[log\frac{p(z | x, \Theta)p(x | \Theta)}{q(z)}] \\
+				 & \ge E_q[log p(x|\Theta)] - E_q[log\frac{q(z)}{p(z|x, \Theta)}] \\
+				 & \ge E_q[log p(x|\Theta)] - KL(q(z) \| p(z|x, \Theta))
+				 & \ge log p(x|\Theta) - KL(q(z) \| p(z|x, \Theta)) \\
 \end{align}
 $$
 
