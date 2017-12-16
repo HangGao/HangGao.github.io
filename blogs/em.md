@@ -13,7 +13,7 @@ _(If you have any question or doubt about this article, pls contact me @ hanggao
 # [](#header-1) 9 \"Level\" Comprehension of EM Algorithm  
 1. EM is E + M
 2. EM iteratively picks a lower bound
-3. K-means is a Hard EM algorithm
+3. K-means clustering is an example of Hard EM
 4. From EM to general EM
 5. VBEM is a special case of general EM
 6. WS algorithm is another special case of general EM
@@ -127,5 +127,9 @@ In this way, we have \\( logp(x;\theta^t) = L(\theta^t; q) \le L(\theta^{t+1}; q
   <figcaption>Fig 2: A sequence of optimization subproblems. g is the lower bound function for each iteration</figcaption>
 </figure>
 
+## [](#header-2) K-means clustering is an example of Hard EM
+
+
 ### [](#header-3) CITATIONS:
 * Fig 1: \(Do. & Batzoglou\) [What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1)
+* Andrew Ng. [The EM algorithm](http://cs229.stanford.edu/notes/cs229-notes8.pdf)
