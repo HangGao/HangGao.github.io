@@ -72,7 +72,11 @@ where \\( L(\Theta; x, z) = p(x, z\|\Theta) \\) is the likelihood function, and 
 
 
 ## [](#header-2) EM iteratively picks a lower bound
-Above we provide the explaination of EM on maximize log-likelihood \\( log p(x \| \Theta) = \int p(x, z \| \Theta) dz \\). Given Jensen Inequality, we have,
+Above we provide the explaination of EM on finding the parameters \\( \hat{\Theta} \\) that maximizes log-probability \\( log p(x; \Theta) \\). Generally speaking, the optimization problem addressed by EM is more difficult than the optimization used in maximum likelihood estimation. That is, in the complete data case, \\( log p(x,z;\Theta) \\) has a single global optimum, which can often be found in closed form with maximum likelihood optimization, while for incomplete data case, \\( log p(x; \Theta \) \\) has multiple local optimum and usually no closed form solutions.
+
+
+
+Given Jensen Inequality, we have,
 
 $$
 \begin{align}
@@ -87,7 +91,11 @@ $$
 
 where \\( q \\) is an arbitrary distribution for missing data variable \\( z \\). 
 
-Let \\( L(\Theta; q) = E_q[log p(x, z \| \Theta)] + H(q(z)) \\) be the lower bound, recall above EM alternates between
+Let \\( L(\Theta; q) = E_q[log p(x, z \| \Theta)] + H(q(z)) \\) be the lower bound, 
+
+
+
+recall above EM alternates between
 E and M steps, where E step aims at guessing the probability distribution of missing data given current model while M step seeks to reestimate model parameters given using these completions. 
 
 In other words, for each iteration t, at E step, model parameter \\( \Theta^t \\) is fixed, the posterior value \\( q^{t+1} \\) of random variable \\( z \\) is given as,
@@ -103,7 +111,10 @@ At M step, model parameters are updated to maximize the expected complete log-li
 
 $$ \Theta^{t+1} = argmax_{\Theta} L(\Theta; q^{t+1}) $$
 
-Put simply, at E step, we choose a function \\( L(\Theta^t; q^{t+1}) \\) that lower bounds \\( logp(x;\Theta) \\) everywhere (argmax is to find the highest one of all possible lower bounds) and at M step, we maximize the lower bound so that it is one step closer to the real log-likelihood \\( logp(x;\Theta) \\). 
+**Remark.** The solution of E step provides a lower bound  
+
+
+Put simply, at E step, we choose a function \\( L(\Theta^t; q^{t+1}) \\) that lower bounds \\( logp(x;\Theta) \\) everywhere (argmax is to find the highest one of all possible lower bounds) and at M step, we maximize the lower bound so that it is one step closer to the objective log-likelihood \\( logp(x;\Theta) \\). 
 
 ### [](#header-3) CITATIONS:
 * Fig 1: \(Do. & Batzoglou\) [What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1)
