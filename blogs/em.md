@@ -103,5 +103,7 @@ At M step, model parameters are updated to maximize the expected complete log-li
 
 $$ \Theta^{t+1} = argmax_{\Theta} L(\Theta; q^{t+1}) $$
 
+Put simply, at E step, we choose a function \\( L(\Theta^t; q^{t+1}) \\) that lower bounds \\( logp(x;\Theta) \\) everywhere (argmax is to find the highest one of all possible lower bounds) and at M step, we maximize the lower bound so that it is one step closer to the real log-likelihood \\( logp(x;\Theta) \\). 
+
 ### [](#header-3) CITATIONS:
 * Fig 1: \(Do. & Batzoglou\) [What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1)
