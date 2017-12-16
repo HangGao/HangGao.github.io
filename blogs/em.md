@@ -121,7 +121,9 @@ $$ \theta^{t+1} = argmax_{\theta} L(\theta; q^{t+1}) $$
 In this way, we have \\( logp(x;\theta^t) = L(\theta^t; q) \le L(\theta^{t+1}; q) = logp(x; \theta^{t+1}) \\), i.e., the objective function monotonically increases for each iteration, and eventually it will converge to some local optimum as with most optimization methods for nonconcave functions.
 
 <figure>
+<p align="center"> 
   <img src="{{site.url}}/assets/images/em/image_2.jpeg" alt="Fig 2: A sequence of optimization subproblems. g is the lower bound function for each iteration" width="400" height="420"/>
+</p>
   <figcaption>Fig 2: A sequence of optimization subproblems. g is the lower bound function for each iteration</figcaption>
 </figure>
 
