@@ -109,14 +109,14 @@ bound here. In order to achieve faster optimization, we usually pick a \\( q(z) 
 
 $$ 
 \begin{align}
-q^{t+1} &= argmax\limits_{q} L(\theta^t; q) \\
+q^{t+1} &= argmax_{q} L(\theta^t; q) \\
 		&= p(z|x, \theta^t)
 \end{align}
 $$
 
 Then at M step, we update parameter \\( \theta \\) with \\( \theta^{t+1} \\) that maximize the lower bound above,
 
-$$ \theta^{t+1} = argmax\limits_{\theta} L(\theta; q^{t+1}) $$
+$$ \theta^{t+1} = argmax_{\theta} L(\theta; q^{t+1}) $$
 
 
 
