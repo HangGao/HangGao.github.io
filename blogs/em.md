@@ -91,7 +91,7 @@ where \\( q \\) is an arbitrary distribution for missing data variable \\( z \\)
 
 **Remark** For some paticular \\( \theta^t \\), the above inequality holds with equality if \\( q(z) = p(z \| x, \theta^t) \\).
 
-Proof. Let \\( L(\theta^t; q) = E_q[log\frac{p(x, z | \theta)}{q(z)}] \\), if \\( q(z) = p(z \| x, \theta^t) \\), we have,
+Proof. Let \\( L(\theta^t; q) = E_q[log\frac{p(x, z \| \theta)}{q(z)}] \\), if \\( q(z) = p(z \| x, \theta^t) \\), we have,
 
 $$ 
 \begin{align}
