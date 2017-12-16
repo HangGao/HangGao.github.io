@@ -114,18 +114,11 @@ q^{t+1} &= argmax_{q} L(\theta^t; q) \\
 \end{align}
 $$
 
-In other words, for each iteration t, at E step, model parameter \\( \theta^t \\) is fixed, the posterior value \\( q^{t+1} \\) of random variable \\( z \\) is given as,
-
-
-
-At M step, model parameters are updated to maximize the expected complete log-likelihood function, with \\( q^{t+1} \\) fixed,
+Then at M step, we update parameter \\( \theta \\) with \\( \theta^{t+1} \\) that maximize the lower bound above,
 
 $$ \theta^{t+1} = argmax_{\theta} L(\theta; q^{t+1}) $$
 
-**Remark.** The solution of E step provides a lower bound  
 
-
-Put simply, at E step, we choose a function \\( L(\theta^t; q^{t+1}) \\) that lower bounds \\( logp(x;\theta) \\) everywhere (argmax is to find the highest one of all possible lower bounds) and at M step, we maximize the lower bound so that it is one step closer to the objective log-likelihood \\( logp(x;\theta) \\). 
 
 ### [](#header-3) CITATIONS:
 * Fig 1: \(Do. & Batzoglou\) [What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1)
