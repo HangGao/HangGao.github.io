@@ -72,9 +72,9 @@ where \\( L(\Theta; x, z) = p(x, z\|\Theta) \\) is the likelihood function, and 
 
 
 ## [](#header-2) EM iteratively picks a lower bound
-Above we provide the explaination of EM on finding the parameters \\( \hat{\Theta} \\) that maximizes log-probability \\( log p(\Theta; x) \\). Generally speaking, the optimization problem addressed by EM is more difficult than the optimization used in maximum likelihood estimation. That is, in the complete data case, \\( log p(\Theta; x, z) \\) has a single global optimum, which can often be found in closed form with maximum likelihood optimization, while for incomplete data case, \\( log p(x; \Theta \) \\) has multiple local maxima and usually no closed form solutions.
+Above we provide the explaination of EM on finding the parameters \\( \hat{\Theta} \\) that maximizes log-probability \\( log p(\Theta; x) \\). Generally speaking, the optimization problem addressed by EM is more difficult than the optimization used in maximum likelihood estimation. That is, in the complete data case, \\( log p(\Theta; x, z) \\) has a single global optimum, which can often be found in closed form with maximum likelihood optimization, while for incomplete data case, \\( log p(\Theta; x \) \\) has multiple local maxima and usually no closed form solutions.
 
-EM solves the issue by reducing the problem of optimizing \\( log p(\Theta; x) \\) into a sequence of simpler optimization subproblems, whose objective functions have unique global optima that is often in closed form. These problems are chosen in a way that gaurantees their solutions \\( \hat{\Theta^1} \\), \\( \hat{\Theta^2} \\) ...  and will converge to local optimum of \\( log p(x; \Theta) \\)
+EM solves the issue by reducing the problem of optimizing \\( log p(\Theta; x) \\) into a sequence of simpler optimization subproblems, whose objective functions have unique global optima that is often in closed form. These problems are chosen in a way that gaurantees their solutions \\( \hat{\Theta^1} \\), \\( \hat{\Theta^2} \\) ...  and will converge to local optimum of \\( log p(\Theta; x) \\)
 
 In fact, with Jensen Inequality, we can get a lower bound of \\( logp(\Theta; x) \\), 
 
@@ -88,6 +88,10 @@ logp(x | \Theta) & = log(\int p(x, z | \Theta) dz) = log(\int q(z)\frac{p(x, z |
 $$
 
 where \\( q \\) is an arbitrary distribution for missing data variable \\( z \\). 
+
+
+
+
 
 Let \\( L(\Theta; q) = E_q[log p(x, z \| \Theta)] + H(q(z)) \\) be the lower bound, 
 
