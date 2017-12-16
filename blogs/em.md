@@ -28,7 +28,7 @@ _(If you have any question or doubt about this article, pls contact me @ hanggao
 Consider a simple coin flipping experiment in which we are given a pair of coin A and B of unknown biases, \\( \theta_A \\) and \\( \theta_B \\) respectively \(i.e., 
 given any flip, coin A will land on heads with probability \\(\theta_A\\) and tails with probability \\( 1-\theta_A \\) and similar for coin B\). 
 
-If the goal is set to estimate \\(\Theta = \(\theta_A, \theta_B\)\\), we can divide the experiment into n repeated runs of the following procedure: (1) randomly choose one of the two coins;
+If the goal is set to estimate \\(\theta = \(\theta_A, \theta_B\)\\), we can divide the experiment into n repeated runs of the following procedure: (1) randomly choose one of the two coins;
 (2) and perform m independent coin tosses with the selected coin. 
 
 In other words, we keep track of two vectors \\( x = \(x_1, x_2, ..., x_n\) \\) and \\( z = \(z_1, z_2, ..., z_n\) \\),
@@ -43,80 +43,80 @@ can be given as, \\( \hat{\theta_A} = \frac{H_A}{H_A + T_A} \\) and \\( \hat{\th
   <figcaption>Fig 1: Parameter estimation for complete and incomplete data</figcaption>
 </figure>
 
-The above estimation is known as maximum likelihood estimation in statistical literature, i.e., it gives a solution of the parameters \\( \hat{\Theta} = \(\hat{\theta_A}, \hat{\theta_B}\) \\) that
-maximize the logarithm of joint probability (or log-likelihood) \\( logP\(x, z; \Theta\) \\).
+The above estimation is known as maximum likelihood estimation in statistical literature, i.e., it gives a solution of the parameters \\( \hat{\theta} = \(\hat{\theta_A}, \hat{\theta_B}\) \\) that
+maximize the logarithm of joint probability (or log-likelihood) \\( logP\(x, z; \theta\) \\).
 
 However, when it comes to incomplete data case, for example, we are only given recorded head counts \\( x \\), without the identities \\( z \\) of the coin used for each set of tosses. In this case, 
 it is impossible to compute the propotion of heads for each coin because coin identity is no longer available. However, viewing \\(z\\) as latent factors or hidden variables, if we have some way to complete
 data, **we can reduce the problem of parameter estimation with incomplete data back to maximum likelihood estimation with complete data**.
 
-One possible completion could be as follows: (1) starting from some initial parameters, \\(\hat{\Theta}^t = \(\hat{\theta_A}^t, \hat{\theta_B}^t\)\\), determine for each run whether coin A or B was more 
-likely to have generated the observed flips (using current parameter estimates); (2) assume the guess/completetion to be correct (coin assignment), apply regular maximum likelihood estimation to get \\(\hat{\Theta}^{t+1}\\); (3) repeat the above two steps until convergence. The completion will improve along with the improvement of parameter estimates. 
+One possible completion could be as follows: (1) starting from some initial parameters, \\(\hat{\theta}^t = \(\hat{\theta_A}^t, \hat{\theta_B}^t\)\\), determine for each run whether coin A or B was more 
+likely to have generated the observed flips (using current parameter estimates); (2) assume the guess/completetion to be correct (coin assignment), apply regular maximum likelihood estimation to get \\(\hat{\theta}^{t+1}\\); (3) repeat the above two steps until convergence. The completion will improve along with the improvement of parameter estimates. 
 
 Expectation maximization is a refinement on the above idea. Instead of picking the most possible coin for each run on each iteration, EM computes probabilities for each completion of missing data, using
-current parameters \\(\hat{\Theta}^t\\). A weighted training data is thus created consisting of all possible completion of data. And then a modified version of maximum likelihood estimation deals with the 
-weighted training examples and provides new parameter estimates \\( \hat{\Theta}^{t+1} \\). **By using weighted training examples rather than choosing the single best completion, EM is able to account for 
+current parameters \\(\hat{\theta}^t\\). A weighted training data is thus created consisting of all possible completion of data. And then a modified version of maximum likelihood estimation deals with the 
+weighted training examples and provides new parameter estimates \\( \hat{\theta}^{t+1} \\). **By using weighted training examples rather than choosing the single best completion, EM is able to account for 
 the confidence of the model in each possible completion**.
 
 Back to the definition that EM is E + M, expectation maximization alternates between E and M step. At E step, EM tries to approximate a probability distribution over completions of missing data given current
 model while at M step, EM re-estimates the model parameters using these completions. However, it is often not necessary to compute the probability distribution over completions, instead, \"expected\" sufficient
 statistics is enough,
 
-\\[ Q(\Theta\|\Theta^t) = E_{z\|x,\Theta^t}(log L(\Theta; x, z)) \\]
+\\[ Q(\theta\|\theta^t) = E_{z\|x,\theta^t}(log L(\theta; x, z)) \\]
 
 
-where \\( L(\Theta; x, z) = p(x, z\|\Theta) \\) is the likelihood function, and model reestimation can be thought as maximization of the expected log likelihood of completed data. 
+where \\( L(\theta; x, z) = p(x, z\|\theta) \\) is the likelihood function, and model reestimation can be thought as maximization of the expected log likelihood of completed data. 
 
 
-\\[ \Theta^{t+1} = argmax_{\Theta} Q(\Theta\|\Theta^t) \\]
+\\[ \theta^{t+1} = argmax_{\theta} Q(\theta\|\theta^t) \\]
 
 
 ## [](#header-2) EM iteratively picks a lower bound
-Above we provide the explaination of EM on finding the parameters \\( \hat{\Theta} \\) that maximizes log-probability \\( log p(\Theta; x) \\). Generally speaking, the optimization problem addressed by EM is more difficult than the optimization used in maximum likelihood estimation. That is, in the complete data case, \\( log p(\Theta; x, z) \\) has a single global optimum, which can often be found in closed form with maximum likelihood optimization, while for incomplete data case, \\( log p(\Theta; x \) \\) has multiple local maxima and usually no closed form solutions.
+Above we provide the explaination of EM on finding the parameters \\( \hat{\theta} \\) that maximizes log-probability \\( log p(x; \theta) \\). Generally speaking, the optimization problem addressed by EM is more difficult than the optimization used in maximum likelihood estimation. That is, in the complete data case, \\( log p(x, z; \theta) \\) has a single global optimum, which can often be found in closed form with maximum likelihood optimization, while for incomplete data case, \\( log p(x; \theta\) \\) has multiple local maxima and usually no closed form solutions.
 
-EM solves the issue by reducing the problem of optimizing \\( log p(\Theta; x) \\) into a sequence of simpler optimization subproblems, whose objective functions have unique global optima that is often in closed form. These problems are chosen in a way that gaurantees their solutions \\( \hat{\Theta^1} \\), \\( \hat{\Theta^2} \\) ...  and will converge to local optimum of \\( log p(\Theta; x) \\)
+EM solves the issue by reducing the problem of optimizing \\( log p(x; \theta) \\) into a sequence of simpler optimization subproblems, whose objective functions have unique global optima that is often in closed form. These problems are chosen in a way that gaurantees their solutions \\( \hat{\theta^1} \\), \\( \hat{\theta^2} \\) ...  and will converge to local optimum of \\( log p(x; \theta) \\)
 
-In fact, with Jensen Inequality, we can get a lower bound of \\( logp(\Theta; x) \\), 
+In fact, with Jensen Inequality, we can get a lower bound of \\( logp(x; \theta) \\), 
 
 $$
 \begin{align}
-logp(x | \Theta) & = log(\int p(x, z | \Theta) dz) = log(\int q(z)\frac{p(x, z | \Theta)}{q(z)} dz) \\ 
- 				 & = log E_q[\frac{p(x, z | \Theta)}{q(z)}] = log E_q[e^{log\frac{p(x, z | \Theta)}{q(z)}}] \\
- 				 & \ge log e^{E_q[log\frac{p(x, z | \Theta)}{q(z)}]} \\
- 				 & \ge E_q[log\frac{p(x, z | \Theta)}{q(z)}] \\
+logp(x | \theta) & = log(\int p(x, z | \theta) dz) = log(\int q(z)\frac{p(x, z | \theta)}{q(z)} dz) \\ 
+ 				 & = log E_q[\frac{p(x, z | \theta)}{q(z)}] = log E_q[e^{log\frac{p(x, z | \theta)}{q(z)}}] \\
+ 				 & \ge log e^{E_q[log\frac{p(x, z | \theta)}{q(z)}]} \\
+ 				 & \ge E_q[log\frac{p(x, z | \theta)}{q(z)}] \\
 \end{align}
 $$
 
 where \\( q \\) is an arbitrary distribution for missing data variable \\( z \\). 
 
+**Remark** For some paticular \\( \theta^t \\), the above inequality holds with equality if \\( q(z) = p(z | x, \theta^t) \\).
 
 
 
-
-Let \\( L(\Theta; q) = E_q[log p(x, z \| \Theta)] + H(q(z)) \\) be the lower bound, 
+Let \\( L(\theta; q) = E_q[log p(x, z \| \theta)] + H(q(z)) \\) be the lower bound, 
 
 
 
 recall above EM alternates between
 E and M steps, where E step aims at guessing the probability distribution of missing data given current model while M step seeks to reestimate model parameters given using these completions. 
 
-In other words, for each iteration t, at E step, model parameter \\( \Theta^t \\) is fixed, the posterior value \\( q^{t+1} \\) of random variable \\( z \\) is given as,
+In other words, for each iteration t, at E step, model parameter \\( \theta^t \\) is fixed, the posterior value \\( q^{t+1} \\) of random variable \\( z \\) is given as,
 
 $$ 
 \begin{align}
-q^{t+1} &= argmax_{q} L(\Theta^t; q) \\
-		&= p(z|x, \Theta^t)
+q^{t+1} &= argmax_{q} L(\theta^t; q) \\
+		&= p(z|x, \theta^t)
 \end{align}
 $$
 
 At M step, model parameters are updated to maximize the expected complete log-likelihood function, with \\( q^{t+1} \\) fixed,
 
-$$ \Theta^{t+1} = argmax_{\Theta} L(\Theta; q^{t+1}) $$
+$$ \theta^{t+1} = argmax_{\theta} L(\theta; q^{t+1}) $$
 
 **Remark.** The solution of E step provides a lower bound  
 
 
-Put simply, at E step, we choose a function \\( L(\Theta^t; q^{t+1}) \\) that lower bounds \\( logp(x;\Theta) \\) everywhere (argmax is to find the highest one of all possible lower bounds) and at M step, we maximize the lower bound so that it is one step closer to the objective log-likelihood \\( logp(x;\Theta) \\). 
+Put simply, at E step, we choose a function \\( L(\theta^t; q^{t+1}) \\) that lower bounds \\( logp(x;\theta) \\) everywhere (argmax is to find the highest one of all possible lower bounds) and at M step, we maximize the lower bound so that it is one step closer to the objective log-likelihood \\( logp(x;\theta) \\). 
 
 ### [](#header-3) CITATIONS:
 * Fig 1: \(Do. & Batzoglou\) [What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1)
