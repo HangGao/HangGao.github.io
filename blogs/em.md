@@ -74,7 +74,7 @@ where \\( L(\theta; x, z) = p(x, z\|\theta) \\) is the likelihood function, and 
 ## [](#header-2) EM iteratively picks a lower bound
 Above we provide the explaination of EM on finding the parameters \\( \hat{\theta} \\) that maximizes log-probability \\( log p(x; \theta) \\). Generally speaking, the optimization problem addressed by EM is more difficult than the optimization used in maximum likelihood estimation. That is, in the complete data case, \\( log p(x, z; \theta) \\) has a single global optimum, which can often be found in closed form with maximum likelihood optimization, while for incomplete data case, \\( log p(x; \theta\) \\) has multiple local maxima and usually no closed form solutions.
 
-EM solves the issue by reducing the problem of optimizing \\( logp(x; \theta) \\) into a sequence of simpler optimization subproblems, whose objective functions have unique global optima that is often in closed form. These problems are chosen in a way that gaurantees their solutions \\( \hat{\theta^1} \\), \\( \hat{\theta^2} \\) ...  and will converge to local optimum of \\( log p(x; \theta) \\)
+EM solves the issue by reducing the problem of optimizing \\( logp(x; \theta) \\) into a sequence of simpler optimization subproblems, whose objective functions have unique global optima that can often be computed in closed form. These problems are chosen in a way that gaurantees their solutions \\( \hat{\theta^1} \\), \\( \hat{\theta^2} \\) ...  and will converge to local optimum of \\( log p(x; \theta) \\)
 
 In fact, with Jensen Inequality, we can get a lower bound of \\( logp(x; \theta) \\), 
 
@@ -104,12 +104,8 @@ L(\theta^t; q) &= E_q[log\frac{p(x, z | \theta)}{q(z)}] \\
 \end{align}
 $$
 
-
-
-recall above EM alternates between
-E and M steps, where E step aims at guessing the probability distribution of missing data given current model while M step seeks to reestimate model parameters given using these completions. 
-
-In other words, for each iteration t, at E step, model parameter \\( \theta^t \\) is fixed, the posterior value \\( q^{t+1} \\) of random variable \\( z \\) is given as,
+Recall that we mentioned above that E step aims at guessing the probability distribution of completions given current model, which in other words, is to pick the right \\( q(z) \\) for the lower
+bound here. In order to achieve faster optimization, we usually pick a \\( q(z) \\) that provides the tightest bound, i.e., at E step, for iteration t, we assign a value to \\( q^{t+1} \\), so that,
 
 $$ 
 \begin{align}
@@ -117,6 +113,10 @@ q^{t+1} &= argmax_{q} L(\theta^t; q) \\
 		&= p(z|x, \theta^t)
 \end{align}
 $$
+
+In other words, for each iteration t, at E step, model parameter \\( \theta^t \\) is fixed, the posterior value \\( q^{t+1} \\) of random variable \\( z \\) is given as,
+
+
 
 At M step, model parameters are updated to maximize the expected complete log-likelihood function, with \\( q^{t+1} \\) fixed,
 
