@@ -114,10 +114,16 @@ q^{t+1} &= argmax_{q} L(\theta^t; q) \\
 \end{align}
 $$
 
-Then at M step, we update parameter \\( \theta \\) with \\( \theta^{t+1} \\) that maximize the lower bound above,
+<figure>
+  <img src="{{site.url}}/assets/images/em/image_2.jpeg" alt="Fig 2: A sequence of optimization subproblems. g is the lower bound function for each iteration"/>
+  <figcaption>Fig 2: A sequence of optimization subproblems. g is the lower bound function for each iteration</figcaption>
+</figure>
+
+Then at M step, we update parameter \\( \theta \\) with \\( \theta^{t+1} \\) that maximizes the lower bound above,
 
 $$ \theta^{t+1} = argmax_{\theta} L(\theta; q^{t+1}) $$
 
+In this way, we have \\( logp(x;\theta^t) = L(\theta^t; q) \le L(\theta^{t+1}; q) = logp(x; \theta^{t+1}) \\), i.e., the objective function monotonically increases for each iteration, and eventually it will converge to some local optimum as with most optimization methods for nonconcave functions.
 
 
 ### [](#header-3) CITATIONS:
