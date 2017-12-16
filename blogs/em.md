@@ -44,7 +44,7 @@ can be given as, \\( \hat{\theta_A} = \frac{H_A}{H_A + T_A} \\) and \\( \hat{\th
 </figure>
 
 The above estimation is known as maximum likelihood estimation in statistical literature, i.e., it gives a solution of the parameters \\( \hat{\theta} = \(\hat{\theta_A}, \hat{\theta_B}\) \\) that
-maximize the logarithm of joint probability (or log-likelihood) \\( logP\(x, z; \theta\) \\).
+maximize the logarithm of joint probability (or log-likelihood) \\( log p\(x, z; \theta\) \\).
 
 However, when it comes to incomplete data case, for example, we are only given recorded head counts \\( x \\), without the identities \\( z \\) of the coin used for each set of tosses. In this case, 
 it is impossible to compute the propotion of heads for each coin because coin identity is no longer available. However, viewing \\(z\\) as latent factors or hidden variables, if we have some way to complete
@@ -74,7 +74,7 @@ where \\( L(\theta; x, z) = p(x, z\|\theta) \\) is the likelihood function, and 
 ## [](#header-2) EM iteratively picks a lower bound
 Above we provide the explaination of EM on finding the parameters \\( \hat{\theta} \\) that maximizes log-probability \\( log p(x; \theta) \\). Generally speaking, the optimization problem addressed by EM is more difficult than the optimization used in maximum likelihood estimation. That is, in the complete data case, \\( log p(x, z; \theta) \\) has a single global optimum, which can often be found in closed form with maximum likelihood optimization, while for incomplete data case, \\( log p(x; \theta\) \\) has multiple local maxima and usually no closed form solutions.
 
-EM solves the issue by reducing the problem of optimizing \\( log p(x; \theta) \\) into a sequence of simpler optimization subproblems, whose objective functions have unique global optima that is often in closed form. These problems are chosen in a way that gaurantees their solutions \\( \hat{\theta^1} \\), \\( \hat{\theta^2} \\) ...  and will converge to local optimum of \\( log p(x; \theta) \\)
+EM solves the issue by reducing the problem of optimizing \\( logp(x; \theta) \\) into a sequence of simpler optimization subproblems, whose objective functions have unique global optima that is often in closed form. These problems are chosen in a way that gaurantees their solutions \\( \hat{\theta^1} \\), \\( \hat{\theta^2} \\) ...  and will converge to local optimum of \\( log p(x; \theta) \\)
 
 In fact, with Jensen Inequality, we can get a lower bound of \\( logp(x; \theta) \\), 
 
@@ -89,11 +89,20 @@ $$
 
 where \\( q \\) is an arbitrary distribution for missing data variable \\( z \\). 
 
-**Remark** For some paticular \\( \theta^t \\), the above inequality holds with equality if \\( q(z) = p(z | x, \theta^t) \\).
+**Remark** For some paticular \\( \theta^t \\), the above inequality holds with equality if \\( q(z) = p(z \| x, \theta^t) \\).
 
+Proof. Let \\( L(\theta^t; q) = E_q[log\frac{p(x, z | \theta)}{q(z)}] \\), if \\( q(z) = p(z \| x, \theta^t) \\), we have,
 
-
-Let \\( L(\theta; q) = E_q[log p(x, z \| \theta)] + H(q(z)) \\) be the lower bound, 
+$$ 
+\begin{align}
+L(\theta^t; q) &= E_q[log\frac{p(x, z | \theta)}{q(z)}] \\
+			   &= \int p(z|x, \theta^t)[log\frac{p(x, z | \theta)}{p(z|x, \theta^t)}] dz\\
+			   &= \int p(z|x, \theta^t)[log\frac{p(z|x, \theta^t)p(x|\theta^t)}{p(z|x, \theta^t)}] dz \\
+			   &= \int p(z|x, \theta^t) log p(x|\theta^t) dz \\
+			   &= log p(x |\theta^t) \int p(z|x, \theta^t) dz \\
+			   &= log p(x |\theta^t)
+\end{align}
+$$
 
 
 
