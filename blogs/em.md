@@ -68,7 +68,7 @@ statistics is enough,
 where \\( L(\theta; x, z) = p(x, z\|\theta) \\) is the likelihood function, and model reestimation can be thought as maximization of the expected log likelihood of completed data. 
 
 
-\\[ \theta^{t+1} = argmax_{\theta} Q(\theta\|\theta^t) \\]
+\\[ \theta^{t+1} = \underset{\theta}{\operatorname{argmax}} Q(\theta\|\theta^t) \\]
 
 
 ## [](#header-2) EM iteratively picks a lower bound
@@ -109,14 +109,14 @@ bound here. In order to achieve faster optimization, we usually pick a \\( q(z) 
 
 $$ 
 \begin{align}
-q^{t+1} &= argmax_{q} L(\theta^t; q) \\
+q^{t+1} &= \underset{q}{\operatorname{argmax}} L(\theta^t; q) \\
 		&= p(z|x, \theta^t)
 \end{align}
 $$
 
 Then at M step, we update parameter \\( \theta \\) with \\( \theta^{t+1} \\) that maximizes the lower bound above,
 
-$$ \theta^{t+1} = argmax_{\theta} L(\theta; q^{t+1}) $$
+$$ \theta^{t+1} = \underset{\theta}{\operatorname{argmax}} L(\theta; q^{t+1}) $$
 
 In this way, we have \\( logp(x;\theta^t) = L(\theta^t; q^t) \le L(\theta^t; q^{t+1}) \le L(\theta^{t+1}; q^{t+1}) = logp(x; \theta^{t+1}) \\), i.e., the objective function monotonically increases for each iteration, and eventually it will converge to some local optimum as with most optimization methods for nonconcave functions.
 
@@ -134,7 +134,7 @@ Recall above we talked about EM algorithm on maximizing incomplete data log-like
 ###[](#header-3) Hard EM
 Let \\( \Theta \\) be the model parameters, given the problem above, hard EM approximately solves the following optimization problem:
 
-$$\Theta^* = \underset{\Theta}{\operatorname{<argmax>}}\underset{z_1, z_2, ..., z_n}{\operatorname{max}} P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n)$$
+$$\Theta^* = \underset{\Theta}{\operatorname{argmax}}\underset{z_1, z_2, ..., z_n}{\operatorname{max}} P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n)$$
 
 
 ### [](#header-3) CITATIONS:
