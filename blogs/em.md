@@ -145,13 +145,13 @@ A local optimum of this problem can be found by coordinate ascent, where the coo
 	2. \\( \Theta := \underset{\Theta}{\operatorname{argmax}} P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) \\)
 
 ### [](#header-3) K-Means clustering as an example of Hard EM
-In K-means, we have \\( x_t \in R^D \\) and \\( z_t \in \{1, 2, ..., K\} \\). We can define a K-means probability model \\( \Nu(\mu, I) \\), which is a Gaussian distribution with mean \\( \mu \in R^D \\) and identity covariance matrix. Then we have,
+In K-means, we have \\( x_t \in R^D \\) and \\( z_t \in \{1, 2, ..., K\} \\). We can define a K-means probability model \\( N(\mu, I) \\), which is a Gaussian distribution with mean \\( \mu \in R^D \\) and identity covariance matrix. Then we have,
 
 $$ \Theta = (\mu^1, \mu^2, ..., \mu^K), \mu^k \in R^D $$
 
 $$ 
 \begin{aligin}
-P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) &= \Prod_{t=1}^{N}P_{\Theta}(z_t, x_t)
+P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) &= \prod_{t=1}^{N}P_{\Theta}(z_t, x_t)
 \end{align}
 $$
 
