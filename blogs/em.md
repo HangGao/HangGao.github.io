@@ -131,10 +131,18 @@ In this way, we have \\( logp(x;\theta^t) = L(\theta^t; q^t) \le L(\theta^t; q^{
 Recall above we talked about EM algorithm on maximizing incomplete data log-likelihood \\( logp(x; \theta) \\), now let's move to the case of clustering, i.e., given a set of input observations 
 \\(x_1, x_2, ..., x_n\\) and only this information, assign cluster/class labels \\(z_1, z_2, ..., z_n\\) to each of them.
 
-###[](#header-3) Hard EM
+### [](#header-3) Hard EM
 Let \\( \Theta \\) be the model parameters, given the problem above, hard EM approximately solves the following optimization problem:
 
 $$\Theta^* = \underset{\Theta}{\operatorname{argmax}}\underset{z_1, z_2, ..., z_n}{\operatorname{max}} P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n)$$
+
+A local optimum of this problem can be found by coordinate ascent, where the coordinates can be defined as coordinate \\( \Theta \\) and coordinate \\( (z_1, z_2, ..., z_n) \\). Hard EM thus alternatively
+\"ascent\" each coordinate with the following procedure in order to maximize \\( P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) \\)
+
+1. Initialize \\( \Theta \\)
+2. Repeat until convergence of \\( P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) \\)
+	\,(a) \\( (z_1, z_2, ..., z_n) :=  \underset{z_1, z_2, ..., z_n}{\operatorname{argmax}} P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) \\)
+	\,(b) \\( \Theta := \underset{\Theta}{\operatorname{argmax}} P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) \\)
 
 
 ### [](#header-3) CITATIONS:
