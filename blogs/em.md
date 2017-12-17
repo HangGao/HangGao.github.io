@@ -124,10 +124,17 @@ In this way, we have \\( logp(x;\theta^t) = L(\theta^t; q^t) \le L(\theta^t; q^{
 <p align="center"> 
   <img src="{{site.url}}/assets/images/em/image_2.jpeg" alt="Fig 2: A sequence of optimization subproblems. g is the lower bound function for each iteration" width="400" height="420"/>
 </p>
-  <figcaption>Fig 2: A sequence of optimization subproblems. g is the lower bound function for each iteration. Note black circle means the point where the tightest bound is obtained</figcaption>
+  <figcaption>Fig 2: A sequence of optimization subproblems. g is the lower bound function for each iteration. Note black circle means the point where the tightest bound is obtained.</figcaption>
 </figure>
 
 ## [](#header-2) K-means clustering is an example of Hard EM
+Recall above we talked about EM algorithm on maximizing incomplete data log-likelihood \\( logp(x; \theta) \\), now let's move to the case of clustering, i.e., given a set of input observations 
+\\(x_1, x_2, ..., x_n\\) and only this information, assign cluster/class labels \\(z_1, z_2, ..., z_n\\) to each of them.
+
+###[](#header-3) Hard EM
+Let \\( \Theta \\) be the model parameters, given the problem above, hard EM approximately solves the following optimization problem:
+
+$$\Theta^* = argmax_{\Theta} max_{(z_1, z_2, ..., z_n)}P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n)$$
 
 
 ### [](#header-3) CITATIONS:
