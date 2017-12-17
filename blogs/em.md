@@ -163,6 +163,11 @@ In the case of K-means, similarly, after each cluster \\( z \\) is assigned with
 
 $$ (\mu^1, \mu^2, ..., \mu^K)^* = \underset{\mu^1, \mu^2, ..., \mu^K}{\operatorname{argmin}} \underset{z_1, z_2, ..., z_n}{\operatorname{min}} \sum_{t=1}^N ||\mu^{z_t} - x_t||^2 $$
 
+[K-Means Clustering as an Example of Hard EM](http://ttic.uchicago.edu/~dmcallester/ttic101-07/lectures/em/em.pdf) provides a detailed optimization algorithm for K-means in this setting.
+
+### [](#header-3) Hard vs Soft
+
+
 ### [](#header-3) CITATIONS:
 * Fig 1: \(Do. & Batzoglou\) [What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1)
 * Andrew Ng. [The EM algorithm](http://cs229.stanford.edu/notes/cs229-notes8.pdf)
