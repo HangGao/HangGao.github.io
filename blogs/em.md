@@ -157,6 +157,10 @@ P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) &= \prod_{t=1}^N P_{\Theta}(x
 \end{align}
 $$
 
+Lets reconsider the optimization procedure of hard EM mentioned above. After intitializing parameters, hard EM alternates itertaively between two steps: (1) find assignment of latent varibles \\( z_t \\) that maximizes the likelihood; (2) find the parameters \\( \Theta \\) that maximize the likelihood with the assignment obtained at step (1). In the case of K-means, at step (1), we assgin the most likely cluster \\( z_t \\) to each sample observation \\( x_t \\), while at step (2), we reestimate the mean \\( \mu^k \\) of each cluster. Given the pdf of Gaussian distribution, one can easily show that it is equivalent to the following,
+
+$$ (\mu^1, \mu^2, ..., \mu^K)^* = \underset{\mu^1, \mu^2, ..., \mu^K}{\operatorname{argmin}} \underset{z_1, z_2, ..., z_n}{\operatorname{min}} \sum_{t=1}^N ||\mu^{z_t} - x_t||^2 $$
+
 ### [](#header-3) CITATIONS:
 * Fig 1: \(Do. & Batzoglou\) [What is the expectation maximization algorithm?](https://www.nature.com/articles/nbt1406#f1)
 * Andrew Ng. [The EM algorithm](http://cs229.stanford.edu/notes/cs229-notes8.pdf)
