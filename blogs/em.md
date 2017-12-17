@@ -141,8 +141,8 @@ A local optimum of this problem can be found by coordinate ascent, where the coo
 
 1. Initialize \\( \Theta \\)
 2. Repeat until convergence of \\( P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) \\)
-	* \\( (z_1, z_2, ..., z_n) :=  \underset{z_1, z_2, ..., z_n}{\operatorname{argmax}} P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) \\)
-	* \\( \Theta := \underset{\Theta}{\operatorname{argmax}} P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) \\)
+	1. \\( (z_1, z_2, ..., z_n) :=  \underset{z_1, z_2, ..., z_n}{\operatorname{argmax}} P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) \\)
+	2. \\( \Theta := \underset{\Theta}{\operatorname{argmax}} P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) \\)
 
 
 ### [](#header-3) CITATIONS:
