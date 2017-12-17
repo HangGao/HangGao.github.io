@@ -84,7 +84,7 @@ logp(x | \theta) & = log(\int p(x, z | \theta) dz) = log(\int q(z)\frac{p(x, z |
  				 & = log E_q[\frac{p(x, z | \theta)}{q(z)}] = log E_q[e^{log\frac{p(x, z | \theta)}{q(z)}}] \\
  				 & \ge log e^{E_q[log\frac{p(x, z | \theta)}{q(z)}]} \\
  				 & \ge E_q[log\frac{p(x, z | \theta)}{q(z)}] \\
-\end{align}
+ \end{align}
 $$
 
 where \\( q \\) is an arbitrary distribution for missing data variable \\( z \\). 
@@ -118,13 +118,13 @@ Then at M step, we update parameter \\( \theta \\) with \\( \theta^{t+1} \\) tha
 
 $$ \theta^{t+1} = argmax_{\theta} L(\theta; q^{t+1}) $$
 
-In this way, we have \\( logp(x;\theta^t) = L(\theta^t; q) \le L(\theta^{t+1}; q) = logp(x; \theta^{t+1}) \\), i.e., the objective function monotonically increases for each iteration, and eventually it will converge to some local optimum as with most optimization methods for nonconcave functions.
+In this way, we have \\( logp(x;\theta^t) = L(\theta^t; q^t) \le L(\theta^t; q^{t+1}) \le L(\theta^{t+1}; q^{t+1}) = logp(x; \theta^{t+1}) \\), i.e., the objective function monotonically increases for each iteration, and eventually it will converge to some local optimum as with most optimization methods for nonconcave functions.
 
 <figure>
 <p align="center"> 
   <img src="{{site.url}}/assets/images/em/image_2.jpeg" alt="Fig 2: A sequence of optimization subproblems. g is the lower bound function for each iteration" width="400" height="420"/>
 </p>
-  <figcaption>Fig 2: A sequence of optimization subproblems. g is the lower bound function for each iteration</figcaption>
+  <figcaption>Fig 2: A sequence of optimization subproblems. g is the lower bound function for each iteration. Note black circle means the point where the tightest bound is obtained</figcaption>
 </figure>
 
 ## [](#header-2) K-means clustering is an example of Hard EM
