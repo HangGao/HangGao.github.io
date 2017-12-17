@@ -151,8 +151,8 @@ $$ \Theta = (\mu^1, \mu^2, ..., \mu^K), \mu^k \in R^D $$
 
 $$ 
 \begin{align}
-P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) &= \underset{q}{\operatorname{argmax}} L(\theta^t; q) \\
-		&= p(z|x, \theta^t)
+P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) &=  \prod_{t=1}^N P_{\Theta}(x_t, z_t) \\
+												   &= p(z|x, \theta^t)
 \end{align}
 $$
 
