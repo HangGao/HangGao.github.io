@@ -134,7 +134,7 @@ Recall above we talked about EM algorithm on maximizing incomplete data log-like
 ###[](#header-3) Hard EM
 Let \\( \Theta \\) be the model parameters, given the problem above, hard EM approximately solves the following optimization problem:
 
-$$\Theta^* = \argmax\limits_{\Theta} \max\limits_{(z_1, z_2, ..., z_n)}P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n)$$
+$$\Theta^* = \int\limits_{\Theta} \int\limits_{(z_1, z_2, ..., z_n)}P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n)$$
 
 
 ### [](#header-3) CITATIONS:
