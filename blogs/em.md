@@ -150,8 +150,9 @@ In K-means, we have \\( x_t \in R^D \\) and \\( z_t \in \\{1, 2, ..., K\\} \\). 
 $$ \Theta = (\mu^1, \mu^2, ..., \mu^K), \mu^k \in R^D $$
 
 $$ 
-\begin{aligin}
-P_{\Theta}(x_1, x_2, ..., x_n, z_1, z_2, ..., z_n) 
+\begin{align}
+q^{t+1} &= \underset{q}{\operatorname{argmax}} L(\theta^t; q) \\
+		&= p(z|x, \theta^t)
 \end{align}
 $$
 
